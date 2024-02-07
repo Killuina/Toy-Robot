@@ -1,4 +1,4 @@
-import { availableActions } from "../definitions/availableCommands.js";
+import { availableActions } from "../definitions/availableActions.js";
 import { Orientation } from "../types.js";
 import { removeTextExtraSpacesAndCommas } from "./formatText.js";
 import RobotStructure from "../Robot/RobotStructure.js";

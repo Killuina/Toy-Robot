@@ -1,4 +1,4 @@
-export interface AvailableCommands {
+export interface AvailableActions {
   PLACE: string;
   MOVE: string;
   LEFT: string;

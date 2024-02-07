@@ -2,7 +2,7 @@ import * as readline from "readline";
 import chalk from "chalk";
 import Robot from "./Robot/Robot.js";
 import processCommands from "./utils/processCommand.js";
-import { availableActions } from "./definitions/availableCommands.js";
+import { availableActions } from "./definitions/availableActions.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
