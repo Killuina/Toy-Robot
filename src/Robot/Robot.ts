@@ -40,9 +40,27 @@ class Robot implements RobotStructure {
   }
 
   move() {
-    const nextXPosition = this.xPosition + 1;
-    const nextYPosition = this.yPosition;
-    if (!this.checkIsValidPosition(this.xPosition, this.yPosition)) {
+    let newXPosition = this.xPosition;
+    let newYPosition = this.yPosition;
+
+    switch (this.orientation) {
+      case Orientation.North:
+        newYPosition++;
+        break;
+
+      case Orientation.South:
+        newYPosition--;
+        break;
+
+      case Orientation.East:
+        newXPosition++;
+        break;
+
+      case Orientation.West:
+        newXPosition--;
+    }
+
+    if (!this.checkIsValidPosition(newXPosition, newYPosition)) {
       console.log(
         `You can't move the Robot outside the ${this.tabletopSize}x${this.tabletopSize} table!`
       );
@@ -50,23 +68,8 @@ class Robot implements RobotStructure {
       return;
     }
 
-    switch (this.orientation) {
-      case Orientation.North:
-        const nextYPosition = this.yPosition + 1;
-        this.yPosition++;
-        break;
-
-      case Orientation.South:
-        this.yPosition--;
-        break;
-
-      case Orientation.East:
-        this.xPosition++;
-        break;
-
-      case Orientation.West:
-        this.xPosition--;
-    }
+    this.xPosition = newXPosition;
+    this.yPosition = newYPosition;
   }
 
   left() {
