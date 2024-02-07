@@ -26,12 +26,12 @@ const processCommands = (command: string, robot: RobotStructure): void => {
         return;
       }
 
-      isFirstCommand = false;
-
       const [xPosition, yPosition, orientation] = params;
       const upperCaseOrientation = orientation.toUpperCase();
 
       robot.place(+xPosition, +yPosition, upperCaseOrientation as Orientation);
+
+      isFirstCommand = false;
       break;
 
     case availableActions.MOVE:
