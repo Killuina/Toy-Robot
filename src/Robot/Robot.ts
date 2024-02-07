@@ -15,7 +15,7 @@ class Robot implements RobotStructure {
     this.tabletopSize = tabletopSize;
   }
 
-  private checkIsValidPosition(xPosition: number, yPosition: number) {
+  private checkIsValidPosition(xPosition: number, yPosition: number): boolean {
     const isValidPosition =
       xPosition >= 0 &&
       yPosition >= 0 &&
@@ -40,7 +40,8 @@ class Robot implements RobotStructure {
   }
 
   move() {
-    console.log(this.checkIsValidPosition(this.xPosition, this.yPosition));
+    const nextXPosition = this.xPosition + 1;
+    const nextYPosition = this.yPosition;
     if (!this.checkIsValidPosition(this.xPosition, this.yPosition)) {
       console.log(
         `You can't move the Robot outside the ${this.tabletopSize}x${this.tabletopSize} table!`
@@ -51,6 +52,7 @@ class Robot implements RobotStructure {
 
     switch (this.orientation) {
       case Orientation.North:
+        const nextYPosition = this.yPosition + 1;
         this.yPosition++;
         break;
 
